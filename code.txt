@@ -1,0 +1,40 @@
+sudo systemctl status docker
+sudo systemctl start docker
+docker build -t pydoc .
+sudo docker run -v $(pwd)/output:/output -v $(pwd)/input:/input pydoc
+sudo docker run -d -p 8080:80 pydoc
+sudo docker ps
+
+
+
+docker build -t face-detection-api .
+docker run -d -p 5000:5000 face-detection-api
+docker ps
+docker logs -f kind_hoover
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+so basically i made a app using react native in which when two faces are detected using react native face detector  
+1st face coming from idcard second face coming from the person holding the id card if twofaces are detected the particular frame is sent to server 
+backend which runs locally using flaskapi then the photos are verified using deepface now i wanted to deploy this on aws so i chose a path that photos will 
+come through api gateway given to s3 which acts as a trigger function for ecs ehich has docker container in it which gives the result to dynamo db for that particular user ...
+for the second part i have done runned the python py file using docker by making its image now how can i  proceed after this do after this
